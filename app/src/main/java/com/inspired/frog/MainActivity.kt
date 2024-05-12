@@ -27,7 +27,7 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-@Preview(showBackground = true, showSystemUi = true,)
+@Preview(showBackground = true, showSystemUi = true)
 @Composable
 fun Frog() {
     Text(text = "Bilal")
