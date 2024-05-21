@@ -1,4 +1,4 @@
-package com.inspired.frog.ui.theme
+package com.inspired.frog.ui
 
 import androidx.compose.material3.Typography
 import androidx.compose.ui.text.TextStyle
