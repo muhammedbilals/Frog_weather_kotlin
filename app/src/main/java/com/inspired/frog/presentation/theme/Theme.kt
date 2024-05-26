@@ -1,4 +1,4 @@
-package com.inspired.frog.ui
+package com.inspired.frog.presentation.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
