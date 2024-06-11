@@ -1,11 +1,11 @@
 package com.inspired.frog.data.dto
 
-import com.google.gson.annotations.SerializedName
 import Current
 import CurrentUnits
 import Hourly
 import HourlyUnits
 import Weather
+import com.google.gson.annotations.SerializedName
 
 data class WeatherDto(
     @SerializedName("current")
@@ -96,20 +96,20 @@ data class CurrentUnitsDto(
 
 data class HourlyDto(
     @SerializedName("relative_humidity_2m")
-    val relativeHumidity2m: List<Int?>?,
+    val relativeHumidity2m: List<Int>?,
     @SerializedName("temperature_2m")
-    val temperature2m: List<Double?>?,
+    val temperature2m: List<Double>?,
     @SerializedName("time")
-    val time: List<String?>?,
+    val time: List<String>?,
     @SerializedName("wind_speed_10m")
-    val windSpeed10m: List<Double?>?
+    val windSpeed10m: List<Double>?
 ) {
     fun toHourly(): Hourly {
         return Hourly(
-            relativeHumidity2M = relativeHumidity2m?.map { it?.toLong() ?: 0L } ?: emptyList(),
-            temperature2M = temperature2m?.filterNotNull() ?: emptyList(),
-            time = time?.filterNotNull() ?: emptyList(),
-            windSpeed10M = windSpeed10m?.filterNotNull() ?: emptyList()
+            relativeHumidity2M = relativeHumidity2m ?: emptyList(),
+            temperature2M = temperature2m ?: emptyList(),
+            time = time ?: emptyList(),
+            windSpeed10M = windSpeed10m ?: emptyList()
         )
     }
 }
