@@ -10,7 +10,9 @@ import javax.inject.Inject
 class WeatherRepositoryImpl @Inject constructor (private val  api:WeatherApi) :WeatherRepository {
 
     override suspend fun getWeatherData(lat: Double, long: Double): Resource<Weather> {
+
         return try {
+            Log.d("test","function started")
             val data = api.getWeatherData(lat, long)
             Log.d("Hello", "getWeatherData: $data")
             Resource.Success(
@@ -22,4 +24,5 @@ class WeatherRepositoryImpl @Inject constructor (private val  api:WeatherApi) :W
             Resource.Error(e.message?:"An Unknown Error Occurred")
         }
     }
+
 }

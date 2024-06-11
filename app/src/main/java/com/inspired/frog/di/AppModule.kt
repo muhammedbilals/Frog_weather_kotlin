@@ -11,6 +11,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import javax.inject.Singleton
 
 @Module
@@ -24,12 +25,12 @@ object AppModule {
             .baseUrl("https://api.open-meteo.com/")
             .addConverterFactory(
                 GsonConverterFactory.create()
-            ).build().create(WeatherApi::class.java)
+            ).build().create()
     }
 
     @Provides
     @Singleton
-    fun ProviceFusedLocationProviderClient(app : Application):FusedLocationProviderClient{
+    fun provideFusedLocationProviderClient(app : Application):FusedLocationProviderClient{
         return LocationServices.getFusedLocationProviderClient(app)
     }
 }

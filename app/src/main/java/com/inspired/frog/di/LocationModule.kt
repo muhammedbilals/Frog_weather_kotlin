@@ -20,3 +20,4 @@ abstract  class LocationModule {
     @Singleton
     abstract fun BindLocalTracker(defaultLocationTracker: DefaultLocationTracker):LocationTracker
 }
+
