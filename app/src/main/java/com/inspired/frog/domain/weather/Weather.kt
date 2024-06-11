@@ -32,7 +32,7 @@ data class CurrentUnits (
 data class Hourly (
     val time: List<String>,
     val temperature2M: List<Double>,
-    val relativeHumidity2M: List<Long>,
+    val relativeHumidity2M: List<Int>,
     val windSpeed10M: List<Double>
 )
 
