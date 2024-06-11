@@ -35,3 +35,4 @@ androidx-room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = 
 android-application = { id = "com.android.application", version.ref = "agp" }
 jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 
+

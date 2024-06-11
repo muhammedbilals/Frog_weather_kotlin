@@ -1,6 +1,8 @@
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.jetbrains.kotlin.android)
+    id ("com.android.application")
+    id ("kotlin-android")
+    id ("kotlin-kapt")
+    id("com.google.dagger.hilt.android")
 
 }
 
@@ -73,16 +75,22 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
 
     implementation(libs.retrofit)
-    implementation(libs.converter.gson)
+    implementation ("com.squareup.retrofit2:converter-gson:2.4.0")
+
+
 
     implementation ("com.squareup.moshi:moshi:1.15.1")
+    implementation ("com.squareup.retrofit2:converter-moshi:2.9.0")
+
 
     //Dagger - Hilt
-    implementation ("com.google.dagger:hilt-android:2.40.5")
-//    kapt ("com.google.dagger:hilt-android-compiler:2.40.5")
-    implementation ("androidx.hilt:hilt-lifecycle-viewmodel:1.0.0-alpha03")
-//    kapt ("androidx.hilt:hilt-compiler:1.0.0")
-    implementation ("androidx.hilt:hilt-navigation-compose:1.0.0")
+    implementation ("com.google.dagger:hilt-android:2.51.1")
+    kapt ("com.google.dagger:hilt-android-compiler:2.51.1")
+
+    kapt ("androidx.hilt:hilt-compiler:1.2.0")
+    implementation ("androidx.hilt:hilt-navigation-compose:1.2.0")
+    kapt ("org.jetbrains.kotlinx:kotlinx-metadata-jvm:0.4.2")
+    implementation("com.squareup:javapoet:1.13.0")
 
     // Location Services
     implementation ("com.google.android.gms:play-services-location:20.0.0")

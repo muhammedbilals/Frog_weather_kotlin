@@ -1,5 +1,5 @@
 package com.inspired.frog.data.remote
-import WeatherData
+import com.inspired.frog.data.dto.WeatherDto
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -9,7 +9,5 @@ interface WeatherApi {
     suspend fun getWeatherData(
         @Query("latitude") lat:Double,
         @Query("longitude") long:Double,
-    ):WeatherData
-
-
+    ): WeatherDto
 }

@@ -21,12 +21,15 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.inspired.frog.R
+import com.inspired.frog.presentation.WeatherState
 import androidx.compose.ui.graphics.painter.Painter as Painter1
 
 
 @Composable
 
-fun WeatherCard(modifier: Modifier = Modifier,
+fun WeatherCard(
+    state:WeatherState,
+    modifier: Modifier = Modifier,
                 backgroundColor:Color
 ) {
 
@@ -35,6 +38,7 @@ fun WeatherCard(modifier: Modifier = Modifier,
                 .fillMaxWidth()
                 .padding(10.dp),
             horizontalAlignment = Alignment.CenterHorizontally
+
 
         ) {
             Spacer(modifier = Modifier.height(30.dp))
