@@ -1,44 +1,37 @@
+import com.plcoding.weatherapp.domain.weather.WeatherType
+import java.time.ZonedDateTime
+
 
 data class Weather (
     val latitude: Double,
     val longitude: Double,
-    val generationMs: Double,
-    val utcOffsetSeconds: Long,
-    val timezone: String,
-    val timezoneAbbreviation: String,
-    val elevation: Long,
-    val currentUnits: CurrentUnits?,
-    val current: Current?,
-    val hourlyUnits: HourlyUnits?,
-    val hourly: Hourly?
+    val current: Current,
+    val hourly: Map<Int,List<Hourly>>,
+    val daily: Map<Int,List<Daily>>
 )
 
 data class Current (
-    val time: String,
-    val interval: Long,
-    val temperature2M: Long,
-    val weathercode: Long,
+    val time: ZonedDateTime,
+    val temperature2M: Double,
+    val relativeHumidity2M: Double,
+    val apparentTemperature: Double,
+    val isDay: Boolean,
+    val precipitation: Double,
+    val weatherCode: WeatherType,
     val windSpeed10M: Double
 )
 
-data class CurrentUnits (
-    val time: String,
-    val interval: String,
-    val temperature2M: String,
-    val weathercode: String,
-    val windSpeed10M: String
+
+data class Daily (
+    val time: ZonedDateTime,
+    val weatherCode: WeatherType,
+    val sunrise: ZonedDateTime,
+    val sunset: ZonedDateTime,
+    val uvIndexMax: Double
 )
 
 data class Hourly (
-    val time: List<String>,
-    val temperature2M: List<Double>,
-    val relativeHumidity2M: List<Int>,
-    val windSpeed10M: List<Double>
-)
-
-data class HourlyUnits (
-    val time: String,
-    val temperature2M: String,
-    val relativeHumidity2M: String,
-    val windSpeed10M: String
+    val time: ZonedDateTime,
+    val temperature2M: Double,
+    val weatherCode: WeatherType
 )
