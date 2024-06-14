@@ -37,7 +37,7 @@ fun HourlyWeatherTile(modifier: Modifier = Modifier,weather: Hourly) {
 
     Column(
         modifier = modifier
-            .padding(10.dp),
+            .padding(horizontal = 2.dp, vertical = 10.dp),
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {

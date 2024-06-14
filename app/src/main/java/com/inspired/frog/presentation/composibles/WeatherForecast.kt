@@ -15,11 +15,14 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.inspired.frog.presentation.WeatherState
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
+
 fun WeatherForecast(
     state: WeatherState,
     modifier: Modifier = Modifier
@@ -29,7 +32,7 @@ fun WeatherForecast(
         Column(
             modifier = modifier
                 .fillMaxWidth()
-                .padding(10.dp)
+                .padding(20.dp)
                 .background(Color.Gray, RoundedCornerShape(15.dp))
                 .border(1.dp, Color.Black, RoundedCornerShape(15.dp))
                 .padding(10.dp)

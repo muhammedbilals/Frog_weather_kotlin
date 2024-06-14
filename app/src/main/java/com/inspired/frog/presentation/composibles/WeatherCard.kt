@@ -26,7 +26,7 @@ fun WeatherCard(
 ) {
     state.weatherInfo?.current?.let { data ->
         Card(
-            modifier = modifier.padding(10.dp)
+            modifier = modifier.padding(horizontal = 20.dp)
         ) {
             Column(
                 modifier = Modifier
@@ -34,13 +34,13 @@ fun WeatherCard(
                     .padding(10.dp),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                Spacer(modifier = Modifier.height(100.dp))
+                Spacer(modifier = Modifier.height(50.dp))
                 Image(
                     painter = painterResource(id = data.weatherCode.iconRes),
                     contentDescription = "image",
                     modifier = Modifier
-                        .width(150.dp)
-                        .height(150.dp)
+                        .width(100.dp)
+                        .height(100.dp)
                 )
                 Spacer(modifier = Modifier.height(10.dp))
                 Text(
@@ -49,6 +49,7 @@ fun WeatherCard(
                     color = Color.White
                 )
                 Spacer(modifier = Modifier.height(10.dp))
+
             }
         }
     }
