@@ -12,12 +12,16 @@ import com.inspired.frog.data.dto.DailyDto
 import com.inspired.frog.data.dto.HourlyDto
 import com.inspired.frog.data.dto.WeatherDto
 import com.plcoding.weatherapp.domain.weather.WeatherType
-import java.time.OffsetDateTime
+import java.time.LocalDateTime
 
 
 private data class  IndexedHourlyData(
     val index: Int,
     val data:Hourly
+)
+private data class  IndexedDailyData(
+    val index: Int,
+    val data:Daily
 )
 @RequiresApi(Build.VERSION_CODES.O)
 fun WeatherDto.toWeather(): Weather {
@@ -26,7 +30,7 @@ fun WeatherDto.toWeather(): Weather {
         longitude = longitude ?: 0.0,
         current = current.toCurrent(),
         hourly = hourly.toHourly(),
-        daily = daily.toDaily(),
+//        daily = daily.toDaily(),
     )
 }
 
@@ -34,7 +38,7 @@ fun WeatherDto.toWeather(): Weather {
 @RequiresApi(Build.VERSION_CODES.O)
 fun CurrentDto.toCurrent(): Current {
     return Current(
-        time = OffsetDateTime.parse(time),
+        time = LocalDateTime.parse(time),
         temperature2M = temperature2M ?: 0.0,
         relativeHumidity2M = relativeHumidity2M ?: 0.0,
         apparentTemperature = apparentTemperature ?: 0.0,
@@ -57,7 +61,7 @@ fun HourlyDto.toHourly(): Map<Int, List<Hourly>> {
         IndexedHourlyData(
             index,
             Hourly(
-                time = OffsetDateTime.parse(time),
+                time = LocalDateTime.parse(time),
                 temperature2M = temperature,
                 weatherCode = WeatherType.fromWMO(weatherCode?.toInt() ?: 0) // Provide a default value of 0 if null
             )
@@ -67,6 +71,8 @@ fun HourlyDto.toHourly(): Map<Int, List<Hourly>> {
     }?.mapValues {
         it.value.map {
             it.data
+        }.also {
+            Log.d("hourly",it.toString())
         }
     } ?: emptyMap<Int, List<Hourly>>().also {
         println(it.values)
@@ -81,15 +87,21 @@ fun DailyDto.toDaily(): Map<Int,List<Daily>> {
         val sunrise = sunrise?.get(index)
         val sunset= sunset?.get(index)
         val uvIndexMax = uvIndexMax.get(index)
-        Daily(
-            time = OffsetDateTime.parse(time),
-            weatherCode = WeatherType.fromWMO(weatherCode.toInt()),
-            uvIndexMax = uvIndexMax,
-            sunset = OffsetDateTime.parse(time),
-            sunrise = OffsetDateTime.parse(time),
-        )
+        IndexedDailyData(
+            index,
+            Daily(
+                time = LocalDateTime.parse(time),
+                weatherCode = WeatherType.fromWMO(weatherCode.toInt()),
+                uvIndexMax = uvIndexMax,
+                sunset = LocalDateTime.parse(time),
+                sunrise = LocalDateTime.parse(time),
+            ))
     }?.groupBy{
-        it.time.dayOfMonth
-        Log.d("","")
+        it.index
+        Log.d("daily",it.data.toString())
+    }?.mapValues {
+        it.value.map {
+            it.data
+        }
     } ?: emptyMap()
 }

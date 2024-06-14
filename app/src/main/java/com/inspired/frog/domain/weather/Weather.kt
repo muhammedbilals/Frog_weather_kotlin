@@ -1,5 +1,5 @@
 import com.plcoding.weatherapp.domain.weather.WeatherType
-import java.time.ZonedDateTime
+import java.time.LocalDateTime
 
 
 data class Weather (
@@ -7,11 +7,11 @@ data class Weather (
     val longitude: Double,
     val current: Current,
     val hourly: Map<Int,List<Hourly>>,
-    val daily: Map<Int,List<Daily>>
+//    val daily: Map<Int,List<Daily>>
 )
 
 data class Current (
-    val time: ZonedDateTime,
+    val time: LocalDateTime,
     val temperature2M: Double,
     val relativeHumidity2M: Double,
     val apparentTemperature: Double,
@@ -23,15 +23,15 @@ data class Current (
 
 
 data class Daily (
-    val time: ZonedDateTime,
+    val time: LocalDateTime,
     val weatherCode: WeatherType,
-    val sunrise: ZonedDateTime,
-    val sunset: ZonedDateTime,
+    val sunrise: LocalDateTime,
+    val sunset: LocalDateTime,
     val uvIndexMax: Double
 )
 
 data class Hourly (
-    val time: ZonedDateTime,
+    val time: LocalDateTime,
     val temperature2M: Double,
     val weatherCode: WeatherType
 )
