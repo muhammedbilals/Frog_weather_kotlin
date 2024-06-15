@@ -24,8 +24,6 @@ fun WeatherTileSquare(modifier: Modifier = Modifier) {
             .size(180.dp)
             .padding(5.dp)
             .background(Color.White, shape = RoundedCornerShape(percent = 10)),
-
-
     ) {
 
     }

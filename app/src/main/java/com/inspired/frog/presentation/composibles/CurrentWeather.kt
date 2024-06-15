@@ -55,6 +55,12 @@ fun CurrentWeather(modifier: Modifier = Modifier,weatherState: WeatherState) {
                 WeatherTileSquare()
                 WeatherTileSquare()
             }
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
+            ) {
+                WeatherTileSquare()
+                WeatherTileOval()
+            }
         }
     }
 
