@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.ui.tooling.preview.Preview
+import com.inspired.frog.presentation.theme.Grey
 
 
 @Composable
@@ -23,7 +24,7 @@ fun WeatherTileSquare(modifier: Modifier = Modifier) {
         modifier = modifier
             .size(180.dp)
             .padding(5.dp)
-            .background(Color.White, shape = RoundedCornerShape(percent = 10)),
+            .background(Grey, shape = RoundedCornerShape(percent = 10)),
     ) {
 
     }

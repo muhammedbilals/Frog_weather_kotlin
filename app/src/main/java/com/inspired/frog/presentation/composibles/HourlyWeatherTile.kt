@@ -8,6 +8,7 @@ import androidx.annotation.RequiresApi
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -15,6 +16,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.remember
@@ -25,6 +27,8 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.inspired.frog.presentation.theme.Grey
+import com.inspired.frog.presentation.theme.LightGrey
 import java.time.format.DateTimeFormatter
 import java.util.Locale
 
@@ -36,30 +40,31 @@ fun HourlyWeatherTile(modifier: Modifier = Modifier,weather: Hourly) {
     }
 
     Column(
-        modifier = modifier
-            .padding(horizontal = 2.dp, vertical = 10.dp),
+
+        modifier = modifier.background(color = Grey)
+            .padding(vertical = 10.dp),
+
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
 
     ) {
 
         Text(
             text = formattedTime.uppercase(Locale.ROOT),
-            fontSize = 12.sp,
-            color = Color.White
+            style = MaterialTheme.typography.labelSmall,
+            color = LightGrey
         )
         Spacer(modifier = Modifier.height(5.dp))
         Image(
             painter = painterResource(id = weather.weatherCode.iconRes),
             contentDescription = "image",
             modifier = Modifier
-                .width(40.dp)
-                .height(40.dp)
+                .width(30.dp)
+                .height(30.dp)
         )
         Spacer(modifier = Modifier.height(5.dp))
-
-
         Text(
-            text = weather.temperature2M.toString(),
+            text = "${ weather.temperature2M.toString()}°",
             fontSize = 12.sp,
             color = Color.White
         )

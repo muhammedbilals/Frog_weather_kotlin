@@ -19,6 +19,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.inspired.frog.presentation.WeatherState
+import com.inspired.frog.presentation.theme.Grey
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
@@ -33,7 +34,7 @@ fun WeatherForecast(
             modifier = modifier
                 .fillMaxWidth()
                 .padding(20.dp)
-                .background(Color.Gray, RoundedCornerShape(15.dp))
+                .background(Grey, RoundedCornerShape(15.dp))
                 .border(1.dp, Color.Black, RoundedCornerShape(15.dp))
                 .padding(10.dp)
         ) {

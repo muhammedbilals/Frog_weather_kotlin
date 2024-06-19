@@ -31,6 +31,7 @@ import androidx.compose.ui.unit.dp
 import com.inspired.frog.presentation.composibles.CurrentWeather
 import com.inspired.frog.presentation.composibles.WeatherCard
 import com.inspired.frog.presentation.composibles.WeatherForecast
+import com.inspired.frog.presentation.theme.Black
 import com.inspired.frog.presentation.theme.FrogWeatherAppTheme
 import com.inspired.frog.presentation.theme.Roboto
 import dagger.hilt.android.AndroidEntryPoint
@@ -60,9 +61,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             FrogWeatherAppTheme {
               Scaffold(
+
                   topBar = {
                       CenterAlignedTopAppBar(title = { Text(text = "Dubai", style =  MaterialTheme.typography.titleMedium )})
                   },
+                  containerColor = MaterialTheme.colorScheme.background,
                   modifier = Modifier.fillMaxSize()
                   
               )  {
@@ -73,9 +76,9 @@ class MainActivity : ComponentActivity() {
                     ) {
                         item { Spacer(modifier = Modifier.height(150.dp)) }
                         item { WeatherCard(state = viewModel.state) }
-                        item { WeatherForecast(state = viewModel.state) }
 
-                        item { CurrentWeather(weatherState = viewModel.state) }
+
+                        item { CurrentWeather(state = viewModel.state) }
                         item {
                             if (viewModel.state.isLoading) {
                                 Box(

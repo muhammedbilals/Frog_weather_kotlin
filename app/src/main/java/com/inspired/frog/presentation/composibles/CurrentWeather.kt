@@ -1,5 +1,7 @@
 package com.inspired.frog.presentation.composibles
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -17,12 +19,12 @@ import androidx.compose.ui.tooling.preview.PreviewParameter
 import androidx.compose.ui.unit.dp
 import com.inspired.frog.presentation.WeatherState
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 
 
-fun CurrentWeather(modifier: Modifier = Modifier,weatherState: WeatherState) {
-    weatherState.weatherInfo?.current.let{
-        data->
+fun CurrentWeather(modifier: Modifier = Modifier,state:WeatherState,) {
+    state.weatherInfo?.current?.let{ data->
         Spacer(modifier = Modifier.padding(10.dp))
         Row(
             horizontalArrangement = Arrangement.Center,
@@ -30,7 +32,7 @@ fun CurrentWeather(modifier: Modifier = Modifier,weatherState: WeatherState) {
             modifier = Modifier.padding(horizontal = 20.dp)
 
         ) {
-            WeatherTileRound()
+            WeatherTileRound(modifier = modifier, data)
             Column{
                 WeatherTileOval()
                 WeatherTileOval()
@@ -43,6 +45,7 @@ fun CurrentWeather(modifier: Modifier = Modifier,weatherState: WeatherState) {
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.spacedBy(8.dp) // Space between items
         ) {
+            WeatherForecast(state = state)
             Row(
                 horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
             ) {
@@ -55,12 +58,12 @@ fun CurrentWeather(modifier: Modifier = Modifier,weatherState: WeatherState) {
                 WeatherTileSquare()
                 WeatherTileSquare()
             }
-            Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
-            ) {
-                WeatherTileSquare()
-                WeatherTileOval()
-            }
+//            Row(
+//                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
+//            ) {
+//                WeatherTileSquare()
+//                WeatherTileRound()
+//            }
         }
     }
 
