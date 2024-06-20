@@ -61,7 +61,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             FrogWeatherAppTheme {
               Scaffold(
-
+//top appbar
                   topBar = {
                       CenterAlignedTopAppBar(title = { Text(text = "Dubai", style =  MaterialTheme.typography.titleMedium )})
                   },
