@@ -47,23 +47,17 @@ fun CurrentWeather(modifier: Modifier = Modifier,state:WeatherState,) {
         ) {
             WeatherForecast(state = state)
             Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 WeatherTileSquare()
                 WeatherTileSquare()
             }
             Row(
-                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
+                horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) {
                 WeatherTileSquare()
                 WeatherTileSquare()
             }
-//            Row(
-//                horizontalArrangement = Arrangement.spacedBy(8.dp) // Space between items
-//            ) {
-//                WeatherTileSquare()
-//                WeatherTileRound()
-//            }
         }
     }
 
