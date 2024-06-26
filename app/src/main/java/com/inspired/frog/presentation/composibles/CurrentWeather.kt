@@ -34,8 +34,8 @@ fun CurrentWeather(modifier: Modifier = Modifier,state:WeatherState,) {
         ) {
             WeatherTileRound(modifier = modifier, data)
             Column{
-                WeatherTileOval()
-                WeatherTileOval()
+                WeatherTileOval(data = data)
+                WeatherTileOval(data = data)
             }
         }
 
@@ -43,7 +43,7 @@ fun CurrentWeather(modifier: Modifier = Modifier,state:WeatherState,) {
         Column(
             modifier = modifier.fillMaxWidth(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.spacedBy(8.dp) // Space between items
+            verticalArrangement = Arrangement.spacedBy(8.dp) 
         ) {
             WeatherForecast(state = state)
             Row(

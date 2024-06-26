@@ -39,8 +39,8 @@ fun WeatherTileRound(modifier: Modifier = Modifier,data:Current) {
                 modifier = modifier,
                 style = MaterialTheme.typography.displayMedium,
                 color = Black
-
             )
+
         }
     }
 }

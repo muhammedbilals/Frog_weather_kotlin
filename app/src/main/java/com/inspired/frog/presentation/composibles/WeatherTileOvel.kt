@@ -1,7 +1,9 @@
 package com.inspired.frog.presentation.composibles
 
+import Current
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
@@ -13,12 +15,15 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
 import androidx.compose.ui.tooling.preview.Preview
+import com.inspired.frog.presentation.theme.Black
 
 
 @Composable
-@Preview
-fun WeatherTileOval(modifier: Modifier = Modifier) {
+
+fun WeatherTileOval(modifier: Modifier = Modifier,data:Current) {
     Box(
         modifier = modifier
             .width(180.dp)
@@ -28,6 +33,19 @@ fun WeatherTileOval(modifier: Modifier = Modifier) {
         contentAlignment = Alignment.Center
 
     ){
-
+        Column {
+            Text(
+                text = "PRECIPITATION",
+                modifier = modifier,
+                style = MaterialTheme.typography.bodySmall,
+                color = Black
+            )
+            Text(
+                text = "${data.precipitation.toInt()}",
+                modifier = modifier,
+                style = MaterialTheme.typography.titleSmall,
+                color = Black
+            )
+        }
     }
 }
